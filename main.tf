@@ -9,15 +9,16 @@ terraform {
 
 provider "azurerm" {
   features {}
+  skip_provider_registration = true
 }
 
-module "windows-vm" {
+module "windows_vm" {
   source = "./modules/windows-vm"
 
   resource_group_name = "testrg"
-  location = "west us"
+  location = "East us 2"
   virtual_network_name = "testvnet"
   subnet_name = "testsub"
-  network_interface_name = "test-neti"
+  network_interface_name = "testneti"
   windows_virtual_machine_name = "testvm"
 }
